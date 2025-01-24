@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfoy46yp0muhv"]
+
+[ext_resource type="Script" path="res://Scripts/timer.gd" id="1_ns46x"]
+[ext_resource type="Texture2D" uid="uid://bfp22hnypygsp" path="res://Sprites/barColor.png" id="2_f8i8e"]
+[ext_resource type="Texture2D" uid="uid://v1wsxvxa5qwq" path="res://Sprites/barLine.png" id="3_be5lb"]
+[ext_resource type="FontFile" uid="uid://bks5o6ukk8sew" path="res://Misc/telegren.ttf" id="4_4oh4b"]
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ns46x")
+
+[node name="Back" type="Sprite2D" parent="."]
+modulate = Color(0.391941, 0.460761, 0.553573, 1)
+position = Vector2(400, 300)
+texture = ExtResource("2_f8i8e")
+
+[node name="Front" type="Sprite2D" parent="."]
+modulate = Color(1, 0.219608, 0.117647, 1)
+position = Vector2(400, 300)
+texture = ExtResource("2_f8i8e")
+
+[node name="Line" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("3_be5lb")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -57.0
+offset_right = 27.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_4oh4b")
+text = "02:00"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cormdc0egdg3a"]
+
+[ext_resource type="PackedScene" uid="uid://cfoy46yp0muhv" path="res://Scenes/Timer.tscn" id="1_ly8xx"]
+[ext_resource type="Script" path="res://Scripts/GameCtrl.gd" id="1_uv8f6"]
+[ext_resource type="PackedScene" uid="uid://cn1kvte2gew60" path="res://Scenes/start_menu.tscn" id="3_f170n"]
+[ext_resource type="PackedScene" uid="uid://cvjjocvcoojvc" path="res://Scenes/TextCtrl.tscn" id="4_vysau"]
+[ext_resource type="PackedScene" uid="uid://cq88410ow4ekn" path="res://Scenes/GameOver.tscn" id="5_wjula"]
+[ext_resource type="Texture2D" uid="uid://bup3dqjuy0pap" path="res://Sprites/BG.jpg" id="6_xuaed"]
+[ext_resource type="Texture2D" uid="uid://br43ob67o6us2" path="res://Sprites/buttonPlain.png" id="7_tgj71"]
+
+[sub_resource type="Theme" id="Theme_2nmkm"]
+Button/icons/icon = ExtResource("7_tgj71")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uv8f6")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("6_xuaed")
+
+[node name="Timer" parent="." instance=ExtResource("1_ly8xx")]
+layout_mode = 1
+
+[node name="TextCtrl" parent="." instance=ExtResource("4_vysau")]
+layout_mode = 1
+
+[node name="GameOver" parent="." instance=ExtResource("5_wjula")]
+visible = false
+layout_mode = 1
+
+[node name="StartMenu" parent="." instance=ExtResource("3_f170n")]
+layout_mode = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2nmkm")
+
+[connection signal="TIMEUP" from="Timer" to="." method="_on_timer_timeup"]
+[connection signal="STARTGAME" from="StartMenu" to="." method="_on_start_menu_startgame"]
